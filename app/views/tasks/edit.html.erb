@@ -1,1 +1,15 @@
-edit.html.erb
+<h2>Edit this task: <%=@task.title%></h2>
+<%= form_for @task do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :details %>
+  <%= f.text_field :details %>
+  <%= f.check_box :completed %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to task_path(@task), method: :delete do %>
+  <p>Delete</p>
+<% end %>
+
+<p><%= link_to "Cancel", tasks_path%></p>
